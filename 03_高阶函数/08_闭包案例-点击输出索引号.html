@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <ul class="nav">
+    <li>孙悟空</li>
+    <li>沙和尚</li>
+    <li>唐僧</li>
+    <li>猪八戒</li>
+  </ul>
+  <script>
+    var lis = document.querySelector('.nav').querySelectorAll('li');
+
+    for (var i = 0; i < lis.length; i++) {
+      // 这里每个立即执行函数都称为一个小闭包，它里面的函数能随便使用 i 这个变量
+      (function (i) {
+        lis[i].onclick = function () {
+          console.log(i);
+        }
+      })(i)
+    }
+  </script>
+</body>
+</html>

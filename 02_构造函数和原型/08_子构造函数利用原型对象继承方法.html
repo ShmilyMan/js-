@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    // 父构造函数
+    function Father(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+    Father.prototype.money = function () {
+      console.log('赚钱~');
+    }
+    // 子构造函数
+    function Son(name, age, score) {
+      Father.call(this, name, age); // 将父构造函数中的指针改成子构造函数中的指针，这样就相当于在子构造函数中写了父构造函数里面的代码
+      this.score = score;
+    }
+    Son.prototype = new Father();
+    Son.prototype.constructor = Son;  // 注意将子构造函数的指向重新指向子构造函数
+
+    console.log(new Son('小明', 32, 0));
+  </script>
+</body>
+</html>

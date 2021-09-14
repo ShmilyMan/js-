@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    /*
+        let是ES6中新增的用于声明变量的关键字
+        特点：
+          * let声明的变量只在所处于的块级作用域有效（{}里的）而使用var声明的变量不具备块级作用域
+          * let关键字声明的变量不具有变量提升
+          * 暂时性死区：但在块级作用域和全局作用域同时声明变量名相同的变量时，内部不会去找外部的变量，只会在块级作用域内部寻找该变量，
+            如果找不到则报错（利用let声明的变量会绑定在这个块级作用域，不会受外界的影响）
+    */
+    // 暂时性死区
+    let num = 10;
+    if (true) {
+      console.log(num); // Cannot access 'num' before initialization
+      let num = 20;
+    }
+  </script>
+</body>
+</html>

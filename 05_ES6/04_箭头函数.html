@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    /*
+      箭头函数的定义：const fn = (参数) => {函数体}
+        * 当箭头函数的函数体只有一句话而且这句话就是返回值时，可以省略函数体的{}
+        * 当箭头函数只有一个参数时，可以省略参数的（）
+        * 箭头函数中不绑定this，它里面的this执行箭头函数定义中的上下午的this
+    */
+    const fn = num => num;
+    console.log(fn(123));
+  </script>
+</body>
+</html>

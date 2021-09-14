@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    // 构造函数中的属性和方法称之为成员 成员是可以添加的
+    function Star(name, age) {
+      this.name = name;
+      this.age = age;
+
+      this.sing = function () {
+        console.log('唱歌');
+      }
+    }
+
+    console.log(new Star('ldh', 18));
+    // 1.实例成员：构造函数里面的带有 this 关键字定义的成员，实例成员只能通过实例化的对象进行调用，不能通过构造函数名
+    // 直接调用
+    console.log(new Star('ldh', 18).name);  // 实例成员
+    // 2.静态成员，构造函数本身添加的成员，它不能通过实例化对象调用，只能通过构造函数名来调用。
+    Star.address = '石家庄';
+    console.log(Star.address);  // 静态成员
+    console.log(new Star('ldh', 18).address);  // undefined 实例化对象找不到
+  </script>
+</body>
+</html>

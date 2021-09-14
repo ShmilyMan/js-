@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    /*
+       函数名.call(this指针的指向，参数1，参数2...)
+       call函数的作用：
+        * 调用函数
+        * 改变所调用的函数中 this 指针的指向
+    */
+    function show() {
+      console.log('哒哒哒');
+      console.log(this);  // window
+    }
+    show.call();  // 调用函数
+    var stu = {
+      name: 'aaa'
+    }
+    show.call(stu)  // stu  -->   改变所调用的函数中 this 指针的指向
+  </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    // apply(thisArg, [arrayParam])   作用：1.调用函数   2.改变函数中的this指向    * 但是进行参数传递时，参数的类型是一个数组
+    // 应用：利用Math中的方法求数组的最大值或者最小值
+    var arr = [1, 58, 45, 65, 12, 45];
+    console.log(Math.max.apply(Math, arr));
+  </script>
+</body>
+</html>

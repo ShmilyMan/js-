@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    // 1.普通函数
+    function f1() {
+      console.log('111');
+    }
+    f1();
+    // 2.对象的方法
+    var obj = {
+      f2: function () {
+        console.log(222);
+      }
+    }
+    obj.f2(); // 使用点的方式调用
+    // 3.构造函数
+    function F3() {
+
+    }
+    new F3(); // 使用 new 关键字进行调用
+    // 4.绑定事件函数
+    btn.onclick = function () {
+
+    } // 所绑定的事件触发的时候进行调用
+    // 5.定时器函数
+    setInterval(function () {
+
+    }, 1000); // 每隔1秒定时器自动调用1次
+    // 6.立即执行函数
+    (function (形参) {
+      // 函数体
+    }(实参))
+    (function (形参) {
+      // 函数体n
+    })(实参)  // 不需要调用，立即执行
+
+  </script>
+</body>
+</html>

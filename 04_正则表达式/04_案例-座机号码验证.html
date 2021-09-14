@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    // 全国座机号码 两种格式：010-12345678  或者  0530-1234567
+    var re = /^\d{3}-\d{8}|\d{4}-\d{7}$/;
+
+    console.log(re.test('010-12345678')); // true
+    console.log(re.test('0530-1234567')); // true
+    console.log(re.test('dsfbdsf'));  // false
+  </script>
+</body>
+</html>

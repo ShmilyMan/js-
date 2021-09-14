@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    function Star(name, age) {
+      this.name = name;
+      this.age = age;
+
+      /*this.sing = function () {
+        console.log('唱歌');
+      }*/
+    }
+
+    var ldh = new Star('刘德华', 18);
+    /*
+        在构造函数中的实例方法，每个对象都会为这个方法创建一段新的内存地址，这样就造成了内存的浪费，实例方法应该指向一段共同的内存地址
+        构造函数的原型对象：js规定，每一个构造函数都有一个 prototype 属性，指向另一个对象。这个 prototype 就是一个对象，这个对象的所有属性和方法，都会被
+          构造函数所拥有。
+        * 我们可以把那些不变的方法，直接定义在 prototype 对象上，这样所有对象的实例就可以共享这些方法。
+    */
+    console.log(ldh);
+    // 一般把实例成员的属性放在构造函数中而把方法放到构造函数的元型对象。
+    Star.prototype.sing = function () {
+        console.log('唱歌');
+    }
+    ldh.sing();
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    /*
+      ES6中允许从数组中提取值，按照对应位置，对变量进行赋值，对象也可以进行解构
+      如果解构不成功，则变量的值为 undefined
+    */
+    // 1.数组解构
+    let arr = [100, 200, 300];
+    let [a, b, c, d] = arr;
+    console.log(a); // 100
+    console.log(b); // 200
+    console.log(c); // 300
+    console.log(d); // undefined
+
+    // 2.对象解构（相当于根据变量名进行查找并且赋值）
+    let obj = {
+      name: '张三',
+      age: 12,
+      sex: '男'
+    }
+    // 2.1对象解构的第一种形式
+    let {name, age, sex} = obj;
+    console.log(name);
+    console.log(age);
+    console.log(sex);
+    // 2.2对象解构的第二种形式
+    let {name: myName, age: myAge, sex: mySex} = obj;
+    console.log(myName);
+    console.log(myAge);
+    console.log(mySex);
+  </script>
+</body>
+</html>

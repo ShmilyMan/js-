@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    // 我们可以通过原型扩展内置对象中的方法
+    // 扩展数组的 sum 求和 方法
+    Array.prototype.sum = function () {
+      var sum = 0;
+      // 构造函数和构造函数原型中的 this 指向的都是所实例化的对象
+      for (var i = 0; i < this.length; i++) {
+        sum += this[i];
+      }
+      return sum;
+    }
+
+    var arr = [11, 22, 33];
+    console.log(arr.sum());  // 66
+  </script>
+</body>
+</html>

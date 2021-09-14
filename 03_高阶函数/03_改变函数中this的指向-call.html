@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    // call(thisArg, param1, param2...)   1.改变函数中this的指向    2.调用函数
+    // call的作用：实现子类继承父类的属性
+    function Father(uname, age) {
+      this.uname = uname;
+      this.age = age;
+    }
+    function Son(uname, age) {
+      Father.call(this, uname, age);
+    }
+
+    console.log(new Son('刘德华', 18));
+  </script>
+</body>
+</html>

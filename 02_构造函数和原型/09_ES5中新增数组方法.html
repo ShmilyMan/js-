@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    /*
+        1.forEach(function(value, index, arr))：遍历数组，相当于循环遍历
+        2.filter(function(value, index, arr))：筛选数组中满足条件的数组，返回一个新的数组
+        3.some(function(value, index, arr))：查找数组中是否有满足条件的元素，返回一个布尔值，注意：如果找到了，就结束执行了，不再继续执行
+        4.map(function(value, index, arr))：方法返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值。
+        5.every(function(value, index, arr))：方法用于检测数组所有元素是否都符合指定条件（通过函数提供）
+        value:数组中的每个值
+        index:数组中值对应的索引
+        arr:数组本身
+    */
+    var arr = [11, 22, 33, 44, 55];
+    // 1. forEach()
+    arr.forEach(function (value) {
+      console.log(value);
+    })
+    // 2. filter
+    var newArr1 = arr.filter(function (value) {
+      return value <= 30;
+    })
+    console.log(newArr1);
+    // 3.some
+    var flag1 = arr.some(function (value) {
+      return value < 10;
+    })
+    console.log(flag1);
+    // 4.map
+    var newArr2 = arr.map(function (value) {
+      return value * 2;
+    })
+    console.log(newArr2)
+    // 5. every
+    var flag2 = arr.every(function (value) {
+      return value > 10;
+    })
+    console.log(flag2);
+  </script>
+</body>
+</html>

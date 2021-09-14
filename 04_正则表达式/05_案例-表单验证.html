@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    input {
+      outline: none;
+      border: 1px solid #ccc;
+    }
+    i {
+      font-style: normal;
+    }
+    li {
+      list-style: none;
+    }
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+    .w {
+      width: 1200px;
+      margin: 50px auto;
+    }
+    .box {
+      border: 1px solid #ccc;
+    }
+    .title {
+      height: 40px;
+      color: #666;
+      line-height: 40px;
+      margin-bottom: 25px;
+      background-color: #ccc;
+    }
+    .title span:first-child {
+      float: left;
+      margin-left: 10px;
+      font-size: 17px;
+    }
+    .title span:last-child {
+      float: right;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+    .title span:last-child a {
+      color: #C81623;
+    }
+    .box form {
+      width: 1200px;
+      margin: 0 400px;
+    }
+    .box .left {
+      display: inline-block;
+      width: 100px;
+      text-align: right;
+      font-size: 12px;
+    }
+    .box .right {
+      display: inline-block;
+      width: 200px;
+      height: 25px;
+    }
+    .box .right:focus {
+      border: 1px solid cadetblue;
+    }
+    .box li {
+      height: 45px;
+      line-height: 45px;
+    }
+    .box .safe {
+      width: 300px;
+    }
+    .box .safe span {
+      color: #ccc;
+      font-size: 10px;
+    }
+    .safe .height,
+    .safe .middle,
+    .safe .low{
+      display: inline-block;
+      width: 30px;
+      height: 15px;
+      color: #fff;
+      font-size: 12px;
+      line-height: 15px;
+      text-align: center;
+    }
+    .safe .height {
+      background-color: #DE1111;
+    }
+    .safe .middle {
+      background-color: #40B83F;
+    }
+    .safe .low {
+      background-color: #F79100;
+    }
+    .box .safe .left {
+      color: #ccc;
+      font-size: 10px;
+      margin-left: 95px;
+    }
+    .box .safe {
+      height: 15px;
+      line-height: 15px;
+    }
+    .box ul {
+      margin-bottom: 80px;
+    }
+    .agree {
+      height: 30px;
+      line-height: 30px;
+      margin-left: 75px;
+      margin-top: 10px;
+    }
+    .agree span {
+      color: #ccc;
+      font-size: 8px;
+    }
+    .agree a {
+      color: #1BA1E6;
+      font-size: 8px;
+    }
+    .agree input {
+      width: 12px;
+      height: 12px;
+      vertical-align: middle;
+      border: 1px solid #ccc;
+    }
+    .over input {
+      width: 160px;
+      height: 35px;
+      color: #fff;
+      margin: 20px 0 0 100px;
+      background-color: #C81623;
+    }
+    .info {
+      font-size: 12px;
+      margin-left: 10px;
+      padding-left: 20px;
+    }
+    .wrong {
+      color: red;
+      background: url(img/error.png) no-repeat left center;
+      background-size: 13px;
+    }
+    .success {
+      color: green;
+      background: url(img/success.png) no-repeat left center;
+      background-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box w">
+    <div class="title">
+      <span>注册新用户</span>
+      <span>我有账号，去<a href="#">登录</a></span>
+    </div>
+    <form action="#">
+      <ul>
+        <li>
+          <label for="tel" class="left">手机号:</label>
+          <input type="text" id="tel" class="right"/>
+          <span></span>
+        </li>
+        <li>
+          <label for="qq" class="left">QQ:</label>
+          <input type="text" id="qq" class="right"/>
+          <span class="info"></span>
+        </li>
+        <li>
+          <label for="nicheng" class="left">昵称:</label>
+          <input type="text" id="nicheng" class="right"/>
+          <span class="info"></span>
+        </li>
+        <li>
+          <label for="code" class="left">短信验证码:</label>
+          <input type="text" id="code" class="right"/>
+          <span class="info"></span>
+        </li>
+        <li>
+          <label for="password" class="left">登录密码:</label>
+          <input type="text" id="password" class="right"/>
+          <span class="info"></span>
+        </li>
+        <li class="safe">
+          <label class="left">安全程度:</label>
+          <i class="height">弱</i>
+          <i class="middle">中</i>
+          <i class="low">强</i>
+        </li>
+        <li>
+          <label for="re_password" class="left">确认密码:</label>
+          <input type="text" id="re_password" class="right"/>
+          <span class="info"></span>
+        </li>
+        <li class="agree">
+          <input type="checkbox" />
+          <span>同意协议并注册</span>
+          <a href="#">《知果果用户协议》</a>
+        </li>
+        <li class="over">
+          <input type="submit" value="完成注册"/>
+        </li>
+      </ul>
+    </form>
+  </div>
+</body>
+  <script>
+    // 1.获取页面元素
+    var tel = document.querySelector('#tel');
+    var qq = document.querySelector('#qq');
+    var nicheng = document.querySelector('#nicheng');
+    var code = document.querySelector('#code');
+    var password = document.querySelector('#password');
+    var re_password = document.querySelector('#re_password');
+
+    // 2.定义正则表达式
+    var telRe = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+    var qqRe = /^[1-9]\d{4,}$/;
+    var nichengRe = /^[一-龥]{2,8}$/;
+    var codeRe = /^\d{6}$/;
+    var passwordRe = /^[a-zA-Z0-9-_]{6,16}$/;
+
+    // 3.进行表单验证
+    regExp(tel, telRe);
+    regExp(qq, qqRe);
+    regExp(nicheng, nichengRe);
+    regExp(code, codeRe);
+    regExp(password, passwordRe);
+
+    // 4.再次验证密码
+    re_password.addEventListener('blur',function () {
+      if (this.value === password.value) {
+        this.nextElementSibling.className = 'info success';
+        this.nextElementSibling.innerHTML = '格式输入正确';
+      } else {
+        this.nextElementSibling.className = 'info wrong';
+        this.nextElementSibling.innerHTML = '格式输入错误';
+      }
+    });
+    // 验证函数
+    function regExp(element, elementRe) {
+       element.addEventListener('blur', function () {
+        if (elementRe.test(this.value)) {
+          this.nextElementSibling.className = 'info success';
+          this.nextElementSibling.innerHTML = '密码输入正确';
+        } else {
+          this.nextElementSibling.className = 'info wrong';
+          this.nextElementSibling.innerHTML = '密码输入错误';
+        }
+      })
+    }
+  </script>
+</html>

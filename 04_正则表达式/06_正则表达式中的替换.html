@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    textarea {
+      width: 200px;
+      height: 100px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <textarea></textarea>
+  <button>提交</button>
+  <div></div>
+  <script>
+    /*
+        replace方法可以实现替换字符串的操作，用来替换的参数可以是一个字符串也可以是一个正则表达式
+        stringObject.replace(regexp/substr, replacement)
+    */
+    // 敏感词替换
+    var textarea = document.querySelector('textarea');
+    var button = document.querySelector('button');
+    var div = document.querySelector('div');
+
+    button.onclick = function () {
+      div.innerHTML = textarea.value.replace(/傻逼/g, '**');
+    }
+  </script>
+</body>
+</html>

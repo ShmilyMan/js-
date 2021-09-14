@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <button>按钮</button>
+  <button>按钮</button>
+  <button>按钮</button>
+  <script>
+    /*
+        bind(thisArg, param1, param2...)  不会调用原来的函数，可以改变函数内部的指向，返回的是原函数改变this指向的一个新的函数
+        * 如果有的函数我们不需要立即调用，但是又想改变这个函数内部的this指向此时就用bind
+    */
+    // 我们有三个按钮，当我们点击后就禁用这个按钮，3秒后开启这个按钮
+    var btns = document.querySelectorAll('button');
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        this.disabled = true;
+        setTimeout(function () {
+          this.disabled = false;
+        }.bind(this), 3000);
+      })
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    // 1.通过 class 关键字创建类
+    class Star {
+      // 构造函数
+      constructor(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+
+      // 在类中声明方法
+      sing(song) {
+        console.log(this.name + '-' + song);
+      }
+    }
+
+    // 2.通过明星类创建它的实例化对象
+    var ldh = new Star('刘德华', 30);
+    console.log(ldh)
+
+    // 3.调用类中的方法
+    ldh.sing('冰雨');
+  </script>
+</body>
+</html>

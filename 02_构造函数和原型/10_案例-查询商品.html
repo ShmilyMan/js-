@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    .search {
+      width: 800px;
+      height: 50px;
+      margin: 20px auto;
+    }
+    input {
+      width: 95px;
+      margin: 0 10px;
+      outline: none;
+      padding-left: 5px;
+      border: 1px solid #ccc;
+    }
+    input:focus {
+      border: 1px solid blue;
+    }
+    table {
+      width: 960px;
+      margin: 0 auto;
+      border-collapse: collapse; /*合并表格边框*/
+    }
+    table thead tr{
+      background-color: skyblue;
+    }
+    thead th,
+    tbody tr {
+      width: 200px;
+      height: 30px;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+    }
+    thead th {
+      font-weight: 600;
+    }
+    tbody tr {
+      line-height: 30px;
+      text-align: center;
+      background-color: rgba(0, 0, 0, .1);
+    }
+  </style>
+</head>
+<body>
+  <div class="search">
+    按照商品价格查询<input type="text" class="star"/> - <input type="text" class="end" />
+    <button class="q_price">查询</button>
+    按照商品名称查询<input type="text" class="commodity_name" /><button class="q_content">查询</button>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>名称</th>
+        <th>价格</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  <script>
+    var data = [
+      {
+        id: 1,
+        name: '华为',
+        price: 999
+      }, {
+        id: 2,
+        name: 'vivo',
+        price: 1999
+      }, {
+        id: 3,
+        name: '苹果',
+        price: 2999
+      }, {
+        id: 4,
+        name: '三星',
+        price: 3999
+      },
+    ];
+    // 1.获取元素
+    var star = document.querySelector('.star');
+    var end = document.querySelector('.end');
+    var tbody = document.querySelector('tbody');
+    var q_price = document.querySelector('.q_price');
+    var commodity_name = document.querySelector('.commodity_name');
+    var q_content = document.querySelector('.q_content');
+
+    // 2.动态的为表格添加数据
+    function setData(myData) {
+      tbody.innerHTML = '';
+      myData.forEach(function (value) {
+        var tr = document.createElement('tr');
+        tr.innerHTML = '<td>' + value.id + '</td><td>' + value.name + '</td><td>' + value.price + '</td>';
+        tbody.appendChild(tr);
+      })
+    }
+    setData(data);
+    // 3.按照价格查询
+    q_price.addEventListener('click', function () {
+      var result = data.filter(function (value) {
+        return value.price >= star.value && value.price <= end.value;
+      })
+      setData(result);
+    })
+    // 4.按照内容进行查询
+    q_content.addEventListener('click', function () {
+      var result = [];
+      data.some(function (value) {
+        if (value.name === commodity_name.value) {
+          result.push(value);
+        }
+      })
+      setData(result);
+    })
+  </script>
+</body>
+</html>

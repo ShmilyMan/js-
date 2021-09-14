@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    /*
+        创建对象的方法一共有三种：
+          1.通过对象字面量创建   var obj = {};
+          2.通过 new 关键字创建  var obj = new Object();
+          3.通过构造函数创建 function className(params) { // 函数体  };   注意：函数名的首字母必须大写
+        构造函数是一种特殊的函数，主要用来初始化对象，即为对象成员变量赋初始值，它总与new一起使用。我们
+        可以把对象中一些公共的属性和方法抽取出来，然后封装到这个函数里面。（相当于一个类）
+    */
+    /*
+        通过 new 实例化以后的构造函数的执行步骤：
+          1.在内存中开辟一段空间
+          2.使 this 关键字指向这段空间
+          3.执行构造函数里面的代码，给这个新的对象添加属性和方法
+          4.返回这个新的对象（所以构造函数中不需要return）
+    */
+    function Star(name, age) {
+      this.name = name;
+      this.age = age;
+
+      this.sing = function () {
+        console.log('唱歌');
+      }
+    }
+
+    console.log(new Star('ldh', 18));
+  </script>
+</body>
+</html>

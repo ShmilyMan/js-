@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <button>点击</button>
+  <script>
+    /*
+        1.类没有变量提升，必须先定义才能实例化对象，要严格的按照这个顺序。
+        2.在类中调用自己的属性和方法时，注意前面一定要加 this 关键字。
+        3.注意里面的 this 指向问题。
+    */
+    var that = null;
+    class Star {
+      constructor(uname, age) {
+        this.uname = uname;
+        this.age = age;
+        that = this;
+        this.btn = document.querySelector('button');
+        this.btn.onclick = this.sing; // 注意不要加括号，这里是回调函数 同时 在这里 sing 里面的 this 指向 button 按钮（指向离他最近的对象）
+      }
+
+      sing() {
+        console.log(that.uname);
+      }
+    }
+
+    var star = new Star('刘德华');
+  </script>
+</body>
+</html>

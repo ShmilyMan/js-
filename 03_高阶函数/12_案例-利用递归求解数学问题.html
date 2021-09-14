@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    // 1.求n的阶乘
+    function f1(n) {
+      if (n === 1) {
+        return 1;
+      }
+      return n * f1(n - 1);
+    }
+
+    console.log(f1(4)); // 24
+    // 2.求斐波那契序列（兔子序列） 1 1 2 3 5 8 13 21
+    function f2(n) {
+      if (n === 1 || n === 2) {
+        return 1;
+      }
+      return f2(n - 1) + f2(n - 2);
+    }
+
+    console.log(f2(6));
+    // 我们想要做输入id号,就可以返回的数据对象
+    var data = [{
+        id: 1,
+        name: '家电',
+        goods: [{
+            id: 11,
+            gname: '冰箱',
+            goods: [{
+                id: 111,
+                gname: '海尔'
+            }, {
+                id: 112,
+                gname: '美的'
+            }, ]
+        }, {
+            id: 12,
+            gname: '洗衣机'
+        }]
+    }, {
+        id: 2,
+        name: '服饰'
+    }];
+
+    function getNameObj(data_json, id) {
+      var obj = {};
+      data_json.forEach(function (item) {
+        if (item.id == id) {
+          obj = item;
+          return obj;
+        } else if (item.goods && item.goods.length > 0) {
+          obj = getNameObj(item.goods, id);
+        }
+      })
+      return obj;
+    }
+
+    console.log(getNameObj(data, 1));
+    console.log(getNameObj(data, 11));
+    console.log(getNameObj(data, 111));
+  </script>
+</body>
+</html>

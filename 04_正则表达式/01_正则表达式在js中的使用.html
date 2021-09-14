@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    // 1.使用 RegExp 对象创建正则表达式
+    var regexp = new RegExp(/123/);
+    console.log(regexp);
+    // 2.使用正则表达式字面量创建
+    var re = /123/;
+    // 3.test(要验证的内容) 正则表达式对象所属的一个方法，如果该字符串满足正则表达式的条件则返回 true,否则返回 false
+    console.log(re.test(123));  // true
+  </script>
+</body>
+</html>

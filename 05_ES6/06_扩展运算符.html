@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+  <script>
+    /*
+      扩展运算符（...）可以将数组或者对象转为用逗号分隔的参数序列
+    */
+    // 将数组转换为逗号分隔的参数序列
+    let arr = [1, 2, 3, 4, 5];
+    console.log(...arr);
+
+    // 应用1：合并数组
+    // 方法一
+    let arr1 = [1, 2, 3];
+    let arr2 = [4, 5, 6];
+    let arr3 = [...arr1, ...arr2];
+    console.log(arr3);  // [1, 2, 3, 4, 5, 6]
+    // 方法二
+    arr1.push(...arr2); // 数组的 push 方法可以输入多个多个参数
+    console.log(arr1);  // [1, 2, 3, 4, 5, 6]
+
+    // 应用2：将伪数组转化成数组
+    let divs = document.querySelectorAll('div');
+    divs = [...divs];
+    console.log(divs);  // [div, div, div, div, div]
+  </script>
+</body>
+</html>

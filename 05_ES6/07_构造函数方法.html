@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    /*
+      Array.from()：将伪数组或可遍历的对象转化成真正的数组
+      第一个参数为所要转化的伪数组或者可遍历的对象
+      第二个参数作用类似于数组的map方法，用来对每个元素进行处理，将处理后的值放入返回的数组（是一个回调函数）
+    */
+    var arrLike = {
+      "0": 1,
+      "1": 2,
+      "length": 2
+    }
+    console.log(Array.from(arrLike, item => item * 2)); // [2, 4]
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    var obj = {
+      id: 1,
+      name: '刘德华',
+      age: 18,
+      address: '上海'
+    }
+    // 1.Object.keys():返回一个对象的所有属性名，返回值是一个数组
+    console.log(Object.keys(obj));  // ["id", "name", "age", "address"]
+    /*
+       2.Object.defineProperty(obj, prop, descriptor)：定义新属性或修改原有的属性。
+         参数：
+           * obj：要操作的对象
+           * prop：要操作的对象中的哪个属性，是一个字符串
+           * descriptor：描述说明，以对象的形式书写 {}
+             -- value：设置属性的值，默认为 undefined
+             -- writable：值是否可以被重写，true | false 默认为 false
+             -- enumerable：目标属性是否可以被枚举（目标属性是否可以通过for循环找到）。true | false 默认为 false
+             -- configurable：目标属性是否可以被删除或是否可以再次修改特性 true | false 默认为 false
+    */
+    // 修改属性的内容
+    Object.defineProperty(obj, 'name', {
+      value: '哒哒哒'
+    })
+    console.log(obj);
+    // 新增属性
+    Object.defineProperty(obj, 'email', {
+      value: 'www.baidu.com'
+    })
+    console.log(obj);
+  </script>
+</body>
+</html>

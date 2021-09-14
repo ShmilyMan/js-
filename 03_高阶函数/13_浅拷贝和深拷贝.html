@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    /*
+        1.浅拷贝只是拷贝一层，更深层次对象级别的只是拷贝的引用（在内存中的地址）
+        2.深拷贝拷贝多层，每一级别的数据都会拷贝
+        3.Object.assign(target,...sources) es6新增方法可以实现浅拷贝
+    */
+    var data = {
+      id: 1,
+      name: '张三',
+      love: {
+        num: 10
+      },
+      arr: [1, 2, 3]
+    };
+    var obj = {};
+    // 1.浅拷贝
+    // 自己实现
+    /*for (var key in data) {
+      obj[key] = data[key]
+    }*/
+    // 使用 es6 新增的方法
+    Object.assign(obj, data);
+
+    obj.arr.push(455);
+    console.log(obj);
+    console.log(data);
+
+    // 2.深拷贝
+    obj = {};
+    function deepCopy(target, source) {
+      for (var sourceKey in source) {
+        var item = source[sourceKey];
+        if (item instanceof Array) {
+          // 当数据为数组时
+          target[sourceKey] = [];
+          deepCopy(target[sourceKey], item);
+        } else if (item instanceof Object) {
+          // 当数据为对象时
+          target[sourceKey] = {};
+          deepCopy(target[sourceKey], item);
+        } else {
+          // 当数据为普通对象时
+          target[sourceKey] = source[sourceKey];
+        }
+      }
+    }
+
+    deepCopy(obj, data);
+    console.log(obj);
+  </script>
+</body>
+</html>

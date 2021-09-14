@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    // 在子类中可以继承父类中的一些属性和方法
+    // 父类
+    class Father {
+      // 构造函数
+      constructor(x, y) {
+        this.x = x;
+        this.y = y;
+      }
+
+      // 普通函数
+      sum() {
+        console.log(this.x + this.y);
+      }
+    }
+
+    // 子类继承父类 使用 extends 关键字
+    class Son extends Father {
+      // 构造函数
+      constructor(x, y) {
+        // 注意调用父类中的构造函数必须写在子类的构造函数赋值之前，不然会报错
+        super(x, y);
+        this.x = x;
+        this.y = y;
+      }
+
+      // 子类中独有的方法
+      sub() {
+        return this.x - this.y;
+      }
+    }
+
+    // 创建实例对象
+    var son = new Son(11, 22);
+    son.sum();
+
+    // 调用子类中所独有的方法
+    console.log(son.sub());
+  </script>
+</body>
+</html>
